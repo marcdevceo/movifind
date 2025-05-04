@@ -1,6 +1,7 @@
+import { UIMovie, MovieMDB } from "@/types/movie";
 
-export async function fetchPopularMovies() {
-    const url = 'https://moviesdatabase.p.rapidapi.com/titles?list=most_pop_movies';
+export async function fetchUpcomingMovies() {
+    const url = 'https://moviesdatabase.p.rapidapi.com/titles/x/upcoming';
   
     const options = {
       method: 'GET',
@@ -18,5 +19,20 @@ export async function fetchPopularMovies() {
   
     const data = await res.json();
     return data.results;
+  }
+
+  export async function fetchMDBMoviesAsUI(): Promise<UIMovie[]> {
+    const raw = await fetchUpcomingMovies();
+  
+    return raw.map((m: MovieMDB) => ({
+      id: m.id,
+      title: m.originalTitleText?.text || "Untitled",
+      poster: m.primaryImage?.url || "",
+      // MDB doesn't have rating/genres/year in the endpoint we're using
+      rating: undefined,
+      genres: [],
+      year: undefined,
+      backdrop: m.primaryImage?.url || "",
+    }));
   }
   
