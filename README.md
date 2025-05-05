@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 MoviFind
 
-## Getting Started
+MoviFind is a sleek, Netflix-style movie discovery app powered by [TMDB](https://www.themoviedb.org/). It's built for portfolio purposes to showcase my full-stack skills using third-party APIs, dynamic routing, and reusable components in a Next.js App Router environment.
 
-First, run the development server:
+## 🌟 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 🎞️ Random featured movie banner
+- 🎬 Browse "Now Playing" and "Top Rated" titles
+- 📂 Filter by genre
+- 🎥 Watch trailers in modal overlays
+- 📄 Movie details page with overview, rating, and release year
+- 🔍 (Coming soon) Search functionality
+- 💻 Fully responsive layout with TailwindCSS
+- 🚀 Deployed with Vercel
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧰 Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: [Next.js 14 (App Router)](https://nextjs.org/docs)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **API**: [TMDB API](https://developers.themoviedb.org/)
+- **Type Safety**: TypeScript
+- **Image Optimization**: next/image
+- **Deployment**: [Vercel](https://vercel.com)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📸 Screenshots
 
-## Learn More
+> *Add these after deployment*
 
-To learn more about Next.js, take a look at the following resources:
+- ✅ Homepage with featured banner
+- ✅ Genre filtering in action
+- ✅ Trailer modal preview
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧪 Upcoming Improvements
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- ✅ Search bar integration (coming back soon)
+- 🧾 Watchlist/favorites using localStorage
+- ♿ Accessibility enhancements
+- 🧪 Add tests for API fetchers and modal components
 
-## Deploy on Vercel
+## 📦 Installation (Local Dev)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+bash
+git clone https://github.com/your-username/movifind.git
+cd movifind
+npm install
+npm run dev 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+You'll need a .env.local file with your TMDB bearer token:
+
+NEXT_PUBLIC_TMDB_BEARER=your_tmdb_token_here
+
+🙌 Acknowledgements
+Data provided by TMDB API
+
+Logo assets © TMDB, used under fair API attribution guidelines
+
+👨🏾‍💻 About the Developer
+Marcus Kimber — Full-stack developer passionate about building clean, responsive web apps. MoviFind reflects my ability to design with purpose, integrate external APIs, and craft dynamic UI in a modern stack.
+
+🔗 Portfolio Site: https://marcdevceo.vercel.app
+📧 Contact Me: marcdevceo@gmail.com
+
+
