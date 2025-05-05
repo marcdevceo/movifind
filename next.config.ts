@@ -10,6 +10,18 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'yts.mx',
       },
+      {
+        protocol: 'https',
+        hostname: 'image.tmdb.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.themoviedb.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'api.themoviedb.org',
+      },
     ],
   },
 };

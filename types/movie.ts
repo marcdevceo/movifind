@@ -19,6 +19,17 @@ export interface YTSMovie {
   yt_trailer_code: string;
 }
 
+export interface TMBDMovies {
+  id: string;
+  title: string;
+  name: string;
+  poster_path: string;
+  backdrop_path: string;
+  vote_average: number;
+  genre_ids: number[];
+  release_date: string;
+}
+
 
 export interface UIMovie {
   id: string;

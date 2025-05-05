@@ -1,19 +1,18 @@
-import { fetchMDBMoviesAsUI } from "@/lib/fetchMovies";
-import { fetchYTSMovies } from "@/lib/fetchYTSMovies";
+import { fetchTMDBMovies } from "@/lib/fetchTMDBMovies";
 import MovieRow from "@/components/MovieRow";
 import Navbar from "@/components/Navbar";
 
 
 export default async function HomePage() {
-  const upcoming = await fetchMDBMoviesAsUI();
-  const topRated = await fetchYTSMovies();
+  const popularMovies = await fetchTMDBMovies("/movie/popular");
+  const topRRatedMovies = await fetchTMDBMovies("/movie/top_rated");
 
   return (
     <main className="bg-red-900 text-white min-h-screen">
       <div className="pt-24">
         <Navbar />
-        <MovieRow title="Upcoming Movies" movies={upcoming} />
-        <MovieRow title="Top Rated Movies" movies={topRated} />
+        <MovieRow title="Popular Movies" movies={popularMovies} />
+        <MovieRow title="Top Rated Movies" movies={topRRatedMovies} />
       </div>
     </main>
   );
