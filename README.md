@@ -22,14 +22,6 @@ MoviFind is a sleek, Netflix-style movie discovery app powered by [TMDB](https:/
 - **Image Optimization**: next/image
 - **Deployment**: [Vercel](https://vercel.com)
 
-## 📸 Screenshots
-
-> *Add these after deployment*
-
-- ✅ Homepage with featured banner
-- ✅ Genre filtering in action
-- ✅ Trailer modal preview
-
 ## 🧪 Upcoming Improvements
 
 - ✅ Search bar integration (coming back soon)
