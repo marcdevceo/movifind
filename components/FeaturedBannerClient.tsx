@@ -31,13 +31,7 @@ export default function FeaturedBannerClient({ movie }: { movie: UIMovie }) {
 
       <div className="absolute bottom-12 left-8 max-w-2xl text-white">
         <h1 className="text-4xl font-bold mb-2 drop-shadow-md">{movie.title}</h1>
-        <p className="text-sm text-gray-300 mb-4 line-clamp-3">
-          {movie.overview || "No overview available."}
-        </p>
         <div className="flex gap-3">
-          <button className="bg-indigo-600 px-4 py-2 rounded font-medium hover:bg-indigo-700">
-            View Details
-          </button>
           {trailerKey && (
             <button
               onClick={() => setIsOpen(true)}

@@ -45,9 +45,10 @@ export async function fetchTMDBMovies(
 }
 
 export async function fetchFeaturedMovie(): Promise<UIMovie | null> {
-  const results = await fetchTMDBMovies("/movie/popular");
+  const results = await fetchTMDBMovies("/movie/now_playing");
+  // const randomIndex = Math.floor(Math.random() * results.length);
 
-  return results.length > 0 ? results[0] : null;
+  return results.length > 0 ? results[12] : null;
 }
 
 export async function fetchTMDBMovieVideos(movieId: string) {
