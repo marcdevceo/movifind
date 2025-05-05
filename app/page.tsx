@@ -1,6 +1,8 @@
 import { fetchTMDBMovies } from "@/lib/fetchTMDBMovies";
 import MovieRow from "@/components/MovieRow";
 import Navbar from "@/components/Navbar";
+import { fetchTMDBGenres } from "@/lib/fetchTMDBGenres";
+import GenreSection from "@/components/GenreSection";
 
 
 export default async function HomePage() {
@@ -11,11 +13,14 @@ export default async function HomePage() {
     <main className="bg-red-900 text-white min-h-screen">
       <div className="pt-24">
         <Navbar />
+        <GenreSection genres={genres} />
         <MovieRow title="Popular Movies" movies={popularMovies} />
         <MovieRow title="Top Rated Movies" movies={topRRatedMovies} />
       </div>
     </main>
   );
 }
+
+const genres = await fetchTMDBGenres();
 
 

@@ -5,7 +5,7 @@ export default function MovieCard({ movie }: { movie: UIMovie }) {
   const imageUrl = movie?.poster;
 
   return (
-    <div className="min-w-[250px] max-w-[200px] flex flex-col justify-between bg-zinc-800 p-2 rounded shadow-xl hover:scale-105 transition-transform duration-200">
+    <div className="min-w-[150px] sm:min-w-[250px] flex flex-col justify-between bg-zinc-800 p-2 rounded shadow-xl hover:scale-105 transition-transform duration-200">
       <div className="w-full aspect-[2/3] bg-zinc-700 rounded overflow-hidden">
         {imageUrl ? (
           <Image

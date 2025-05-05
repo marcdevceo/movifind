@@ -19,7 +19,7 @@ export interface YTSMovie {
   yt_trailer_code: string;
 }
 
-export interface TMBDMovies {
+export interface TMDBMovie {
   id: string;
   title: string;
   name: string;
