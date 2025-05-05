@@ -1,24 +1,3 @@
-export interface MovieMDB {
-  id: string;
-  primaryImage?: {
-    url: string;
-  };
-  originalTitleText?: {
-    text: string;
-  };
-}
-
-export interface YTSMovie {
-  id: number;
-  title: string;
-  year: number;
-  rating: number;
-  genres: string[];
-  medium_cover_image: string;
-  background_image: string;
-  yt_trailer_code: string;
-}
-
 export interface TMDBMovie {
   id: string;
   title: string;
@@ -39,5 +18,6 @@ export interface UIMovie {
   genres?: string[];
   year?: number;
   backdrop?: string;
+  overview?: string;
 }
 

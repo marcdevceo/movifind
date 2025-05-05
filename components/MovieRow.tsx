@@ -1,20 +1,39 @@
+"use client";
+
+import { useState } from "react";
+import MovieModal from "./MovieModal";
 import { UIMovie } from "@/types/movie";
-import MovieCard from "./MovieCard";
+import Image from "next/image";
 
-interface MovieRowProps {
-  title: string;
-  movies: UIMovie[];
-}
+export default function MovieRow({ title, movies }: { title: string; movies: UIMovie[] }) {
+  const [selected, setSelected] = useState<UIMovie | null>(null);
 
-export default function MovieRow({ title, movies }: MovieRowProps) {
   return (
-    <section className="mb-8 mx-10">
-      <h2 className="text-xl font-bold mb-2 px-2">{title}</h2>
-      <div className="flex overflow-x-scroll space-x-4 px-2 scrollbar-hide">
+    <section className="my-8 mx-5">
+      <h2 className="text-2xl font-semibold text-white mb-4">{title}</h2>
+      <div className="flex gap-4 overflow-x-scroll">
         {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+          <div
+            key={movie.id}
+            className="w-40 cursor-pointer flex-shrink-0"
+            onClick={() => setSelected(movie)}
+          >
+            <Image
+              src={movie.poster || "/fallback.jpg"}
+              alt={movie.title}
+              width={160}
+              height={240}
+              className="rounded-md w-full"
+            />
+            <p className="text-sm mt-1 text-white">{movie.title}</p>
+          </div>
         ))}
       </div>
+
+      {selected && (
+        <MovieModal movie={selected} isOpen={true} onClose={() => setSelected(null)} />
+      )}
     </section>
   );
 }
+
