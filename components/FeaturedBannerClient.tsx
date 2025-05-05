@@ -24,7 +24,7 @@ export default function FeaturedBannerClient({ movie }: { movie: UIMovie }) {
         src={movie.backdrop || "/fallback-banner.jpg"}
         alt={movie.title}
         fill
-        className="object-cover object-center"
+        className="object-cover md:object-contain object-center"
         priority
       />
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/60 to-transparent" />
