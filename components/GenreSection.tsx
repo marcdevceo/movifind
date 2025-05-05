@@ -30,12 +30,25 @@ export default function GenreSection({ genres }: Props) {
   }, [selected]);
 
   return (
-    <section>
+    <section className="mt-8">
       <GenreFilter genres={genres} onSelect={setSelected} />
 
       {selected && (
-        <MovieRow title={`Genre: ${selected.name}`} movies={movies} />
+        <div className="flex items-center justify-between px-4 py-2">
+          <h2 className="text-xl font-semibold">Genre: {selected.name}</h2>
+          <button
+            onClick={() => {
+              setSelected(null);
+              setMovies([]);
+            }}
+            className="text-sm text-zinc-900 hover:text-zinc-200 hover:bg-zinc-800 underline bg-zinc-300 rounded-lg p-2"
+          >
+            Clear Genre
+          </button>
+        </div>
       )}
+
+      {selected && <MovieRow title={selected.name} movies={movies} />}
     </section>
   );
 }
