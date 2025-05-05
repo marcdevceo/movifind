@@ -21,3 +21,10 @@ export interface UIMovie {
   overview?: string;
 }
 
+export interface TMDBVideo {
+  id: string;
+  key: string;
+  name: string;
+  site: string;
+  type: string;
+}

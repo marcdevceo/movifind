@@ -4,6 +4,10 @@ import { Dialog } from "@headlessui/react";
 import Image from "next/image";
 import { UIMovie } from "@/types/movie";
 
+import { useState, useEffect } from "react";
+import { fetchTMDBMovieVideos } from "@/lib/fetchTMDBMovies";
+import TrailerModal from "./TrailerModal";
+
 interface Props {
   movie: UIMovie;
   isOpen: boolean;
@@ -11,6 +15,18 @@ interface Props {
 }
 
 export default function MovieModal({ movie, isOpen, onClose }: Props) {
+  const [trailerKey, setTrailerKey] = useState<string | null>(null);
+  const [isTrailerOpen, setIsTrailerOpen] = useState(false);
+
+  useEffect(() => {
+    async function getTrailer() {
+      const key = await fetchTMDBMovieVideos(movie.id);
+      setTrailerKey(key);
+    }
+
+    getTrailer();
+  }, [movie.id]);
+
   return (
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
       {/* Overlay */}
@@ -35,12 +51,29 @@ export default function MovieModal({ movie, isOpen, onClose }: Props) {
               height={375}
               className="rounded-md"
             />
-            <div className="text-white flex-1">
-              <h2 className="text-2xl font-bold mb-2">{movie.title}</h2>
-              <p className="text-sm text-gray-400 mb-2">
-                {movie.year} • ⭐ {movie.rating}
-              </p>
-              <p>{movie.overview || "No description available."}</p>
+            <div>
+              <div className="text-white flex-1">
+                <h2 className="text-2xl font-bold mb-2">{movie.title}</h2>
+                <p className="text-sm text-gray-400 mb-2">
+                  {movie.year} • ⭐ {movie.rating}
+                </p>
+              </div>
+              {trailerKey && (
+                <button
+                  onClick={() => setIsTrailerOpen(true)}
+                  className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700"
+                >
+                  ▶ Watch Trailer
+                </button>
+              )}
+
+              {trailerKey && (
+                <TrailerModal
+                  isOpen={isTrailerOpen}
+                  onClose={() => setIsTrailerOpen(false)}
+                  youtubeKey={trailerKey}
+                />
+              )}
             </div>
           </div>
         </Dialog.Panel>

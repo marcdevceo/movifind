@@ -30,7 +30,7 @@ export default function GenreSection({ genres }: Props) {
   }, [selected]);
 
   return (
-    <section className="mt-8">
+    <section className="">
       <GenreFilter genres={genres} onSelect={setSelected} />
 
       {selected && (

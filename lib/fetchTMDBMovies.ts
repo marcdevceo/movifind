@@ -1,4 +1,4 @@
-import { TMDBMovie, UIMovie } from "@/types/movie";
+import { TMDBMovie, TMDBVideo, UIMovie } from "@/types/movie";
 
 export async function fetchTMDBMovies(
   path: string,
@@ -44,3 +44,34 @@ export async function fetchTMDBMovies(
   }));
 }
 
+export async function fetchFeaturedMovie(): Promise<UIMovie | null> {
+  const results = await fetchTMDBMovies("/movie/popular");
+
+  return results.length > 0 ? results[0] : null;
+}
+
+export async function fetchTMDBMovieVideos(movieId: string) {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_BEARER}`,
+        Accept: "application/json",
+      },
+    }
+  );
+
+  if (!res.ok) {
+    console.error("TMDB trailer fetch error:", await res.text());
+    return null;
+  }
+
+  const data = await res.json();
+
+  const trailer = data.results?.find(
+    (vid: TMDBVideo) =>
+      vid.type === "Trailer" && vid.site === "YouTube"
+  );
+
+  return trailer?.key || null;
+}

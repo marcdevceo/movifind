@@ -3,6 +3,7 @@ import MovieRow from "@/components/MovieRow";
 import Navbar from "@/components/Navbar";
 import { fetchTMDBGenres } from "@/lib/fetchTMDBGenres";
 import GenreSection from "@/components/GenreSection";
+import FeaturedBanner from "@/components/FeaturedBanner";
 
 
 export default async function HomePage() {
@@ -14,6 +15,7 @@ export default async function HomePage() {
       <div className="pt-24">
         <Navbar />
         <GenreSection genres={genres} />
+        <FeaturedBanner />
         <MovieRow title="Popular Movies" movies={popularMovies} />
         <MovieRow title="Top Rated Movies" movies={topRRatedMovies} />
       </div>
