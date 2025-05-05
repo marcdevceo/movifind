@@ -3,7 +3,7 @@
 import { useState } from "react";
 import MovieModal from "./MovieModal";
 import { UIMovie } from "@/types/movie";
-import Image from "next/image";
+import MovieCard from "./MovieCard";
 
 export default function MovieRow({ title, movies }: { title: string; movies: UIMovie[] }) {
   const [selected, setSelected] = useState<UIMovie | null>(null);
@@ -18,14 +18,7 @@ export default function MovieRow({ title, movies }: { title: string; movies: UIM
             className="w-40 cursor-pointer flex-shrink-0"
             onClick={() => setSelected(movie)}
           >
-            <Image
-              src={movie.poster || "/fallback.jpg"}
-              alt={movie.title}
-              width={160}
-              height={240}
-              className="rounded-md w-full"
-            />
-            <p className="text-sm mt-1 text-white">{movie.title}</p>
+            <MovieCard movie={movie}/>
           </div>
         ))}
       </div>

@@ -29,7 +29,7 @@ export default function MovieModal({ movie, isOpen, onClose }: Props) {
           {/* Content */}
           <div className="flex flex-col md:flex-row p-4 gap-4">
             <Image
-              src={movie.poster || "/fallback.jpg"}
+              src={movie.poster || "/fallback.png"}
               alt={movie.title}
               width={250}
               height={375}
